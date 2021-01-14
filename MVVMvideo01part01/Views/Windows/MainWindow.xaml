@@ -4,9 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVMvideo01part01"
+        xmlns:vm="clr-namespace:MVVMvideo01part01.ViewModels"
+        
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{Binding Path=Title}" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+
     <Grid>
+        <StackPanel>
+            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
 
     </Grid>
 </Window>
