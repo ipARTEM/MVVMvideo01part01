@@ -12,10 +12,55 @@
         <vm:MainWindowViewModel/>
     </Window.DataContext>
 
-    <Grid>
-        <StackPanel>
-            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"/>
-        </StackPanel>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Выход"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Окна"></MenuItem>
+            <MenuItem Header="Инструменты"></MenuItem>
+            <MenuItem Header="О программе">
+                <MenuItem Header="Версия программы"/>
+            </MenuItem>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Text="1234"/>
 
-    </Grid>
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Text="{Binding Status}"/>
+
+            </StatusBarItem>
+            <StatusBarItem>
+                <ProgressBar Width="120" Height="12" Value="70"/>
+            </StatusBarItem>
+
+        </StatusBar>
+        <TabControl>
+            <TabItem Header="Вкладка 1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Ellipse Width="200" Height="200" Fill="Bisque" Opacity="12" Stroke="Black"/>
+                    <GridSplitter  Width="4" Grid.RowSpan="2" Background="Black"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Вкладка 2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Grid Grid.Row="1">
+                        <Slider VerticalAlignment="Top" HorizontalAlignment="Center" Width="500"
+                    Value="{Binding Title}"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
 </Window>
