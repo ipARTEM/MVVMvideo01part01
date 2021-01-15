@@ -6,10 +6,11 @@
         xmlns:local="clr-namespace:MVVMvideo01part01"
         xmlns:vm="clr-namespace:MVVMvideo01part01.ViewModels"
         xmlns:cmd="clr-namespace:MVVMvideo01part01.Infrastructure.Commands"
-             xmlns:fa="http://schemas.fontawesome.com/icons/"
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
+        xmlns:oxy="http://oxyplot.org/wpf"
         
         mc:Ignorable="d"
-        Title="{Binding Path=Title}" Height="1000" Width="1400" WindowStartupLocation="CenterScreen">
+        Title="{Binding Path=Title}" Height="800" Width="1000" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
@@ -67,6 +68,11 @@
             <StatusBarItem>
                 <ProgressBar Width="120" Height="12" Value="70"/>
             </StatusBarItem>
+
+            <StatusBarItem>
+                <TextBlock Text="{Binding SelectedPageIndex}" IsEnabled="False"/>
+            </StatusBarItem>
+
 
         </StatusBar>
         <TabControl SelectedIndex="{Binding SelectedPageIndex}">
@@ -243,7 +249,7 @@
                 </TabItem.Header>
             </TabItem>
             <TabItem Header="График">
-                <!--<oxy:Plot>
+                <oxy:Plot>
                     <oxy:Plot.Axes>
                         <oxy:LinearAxis Position="Left"/>
                         <oxy:LinearAxis Position="Bottom"/>
@@ -252,7 +258,7 @@
                                     DataFieldX="XValue"
                                     DataFieldY="YValue"/>
 
-                </oxy:Plot>-->
+                </oxy:Plot>
             </TabItem>
 
             <TabItem Header="{Binding TestDataPoints}"/>

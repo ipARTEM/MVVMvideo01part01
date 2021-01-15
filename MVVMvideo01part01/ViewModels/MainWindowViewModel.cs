@@ -209,7 +209,7 @@ namespace MVVMvideo01part01.ViewModels
                 data_points.Add(new DataPoint { XValue = x, YValue = y });
             }
 
-            //TestDataPoints = data_points;
+            TestDataPoints = data_points;
 
             var student_index = 1;
             var students = Enumerable.Range(1, 10).Select(i => new Student
