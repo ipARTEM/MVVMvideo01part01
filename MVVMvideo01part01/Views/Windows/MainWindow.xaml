@@ -8,6 +8,7 @@
         xmlns:cmd="clr-namespace:MVVMvideo02part02.Infrastructure.Commands"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:oxy="http://oxyplot.org/wpf"
+        xmlns:decanat="clr-namespace:MVVMvideo02part02.Models.Decanat"
         
         mc:Ignorable="d"
         Title="{Binding Path=Title}" Height="800" Width="1000" WindowStartupLocation="CenterScreen">
@@ -88,12 +89,12 @@
             <TabItem Header="Студеты 2">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="180"/>
-                        <ColumnDefinition Width="200"/>
-                        <ColumnDefinition Width="200"/>
-                        <ColumnDefinition Width="200"/>
-                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <GroupBox Header="Группы">

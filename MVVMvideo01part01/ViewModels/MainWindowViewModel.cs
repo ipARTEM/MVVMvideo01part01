@@ -1,6 +1,6 @@
 ﻿using MVVMvideo02part02.Infrastructure.Commands;
-using MVVMvideo02part02.Model;
-using MVVMvideo02part02.Model.Decanat;
+using MVVMvideo02part02.Models;
+using MVVMvideo02part02.Models.Decanat;
 using MVVMvideo02part02.ViewModels.Base;
 using System;
 using System.Collections.Generic;
