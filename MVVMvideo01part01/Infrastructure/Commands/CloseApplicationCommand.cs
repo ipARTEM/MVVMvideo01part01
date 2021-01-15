@@ -1,10 +1,10 @@
-﻿using MVVMvideo01part01.Infrastructure.Commands.Base;
+﻿using MVVMvideo02part02.Infrastructure.Commands.Base;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 
-namespace MVVMvideo01part01.Infrastructure.Commands
+namespace MVVMvideo02part02.Infrastructure.Commands
 {
     internal class CloseApplicationCommand : Command
     {

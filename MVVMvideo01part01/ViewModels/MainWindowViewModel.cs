@@ -1,7 +1,7 @@
-﻿using MVVMvideo01part01.Infrastructure.Commands;
-using MVVMvideo01part01.Model;
-using MVVMvideo01part01.Model.Decanat;
-using MVVMvideo01part01.ViewModels.Base;
+﻿using MVVMvideo02part02.Infrastructure.Commands;
+using MVVMvideo02part02.Model;
+using MVVMvideo02part02.Model.Decanat;
+using MVVMvideo02part02.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Input;
 
-namespace MVVMvideo01part01.ViewModels
+namespace MVVMvideo02part02.ViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {

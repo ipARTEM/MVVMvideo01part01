@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace MVVMvideo01part01.ViewModels.Base
+namespace MVVMvideo02part02.ViewModels.Base
 {
     /// <summary>
     /// Базовый класс   ViewModel   Модели представления

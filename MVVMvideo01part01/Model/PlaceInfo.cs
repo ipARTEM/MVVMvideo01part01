@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 
-namespace MVVMvideo01part01.Model
+namespace MVVMvideo02part02.Model
 {
     internal class PlaceInfo
     {

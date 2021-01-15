@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace MVVMvideo01part01
+namespace MVVMvideo02part02
 {
  
     public partial class MainWindow : Window

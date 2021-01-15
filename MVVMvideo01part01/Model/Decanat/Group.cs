@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MVVMvideo01part01.Model.Decanat
+namespace MVVMvideo02part02.Model.Decanat
 {
     internal class Group
     {
