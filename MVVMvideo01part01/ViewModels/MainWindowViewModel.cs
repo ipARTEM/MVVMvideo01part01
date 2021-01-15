@@ -14,6 +14,12 @@ namespace MVVMvideo01part01.ViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
+        
+
+
+
+
+
         public ObservableCollection<Group> Groups { get; }
 
 
@@ -71,6 +77,22 @@ namespace MVVMvideo01part01.ViewModels
         #endregion
 
 
+        #region Тестовый набор данных для визуализации графиков
+
+        /// <summary>
+        /// Тестовый набор данных для визуализации графиков
+        /// </summary>
+        private IEnumerable<DataPoint> _TestDataPoints;
+
+        public IEnumerable<DataPoint> TestDataPoints
+        {
+            get { return _TestDataPoints; }
+            set => Set(ref _TestDataPoints, value);
+        }
+        #endregion
+
+
+
         #region  Статус программы
         /// <summary>
         /// Статус программы
@@ -79,6 +101,8 @@ namespace MVVMvideo01part01.ViewModels
 
         public string Status
         {
+
+
             get { return _Status; }
             set { _Status = value; }
         }
@@ -98,6 +122,9 @@ namespace MVVMvideo01part01.ViewModels
         {
             //(RootObject as Window)?.Close();
             Application.Current.Shutdown();
+
+            //var items = new string[10];       // Работает только на Core
+            //var last_item = items[^2];
         }
 
         #endregion
