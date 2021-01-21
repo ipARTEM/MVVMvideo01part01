@@ -127,7 +127,10 @@
                                         <RowDefinition Height="40"/>
                                     </Grid.RowDefinitions>
                                     <ListBox  Grid.Row="0" ItemsSource="{Binding  Source={StaticResource GroupsCollection}}" DisplayMemberPath="Name" SelectedIndex="0"
-                                 SelectedItem="{Binding SelectedGroup}" Grid.ColumnSpan="2" Margin="0,0,0,17">
+                                 SelectedItem="{Binding SelectedGroup}" Grid.ColumnSpan="2" Margin="0,0,0,17"
+                                              VirtualizingPanel.IsContainerVirtualizable="True"
+                                              VirtualizingPanel.IsVirtualizing="True"
+                                              VirtualizingPanel.VirtualizationMode="Recycling">
                                         <ListBox.ItemsPanel>
                                             <ItemsPanelTemplate>
                                                 <VirtualizingStackPanel/>
