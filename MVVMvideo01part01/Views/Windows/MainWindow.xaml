@@ -1,14 +1,14 @@
-﻿<Window x:Class="MVVMvideo02part02.MainWindow"
+﻿<Window x:Class="MVVMvideo03part03.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MVVMvideo02part02"
-        xmlns:vm="clr-namespace:MVVMvideo02part02.ViewModels"
-        xmlns:cmd="clr-namespace:MVVMvideo02part02.Infrastructure.Commands"
+        xmlns:local="clr-namespace:MVVMvideo03part03"
+        xmlns:vm="clr-namespace:MVVMvideo03part03.ViewModels"
+        xmlns:cmd="clr-namespace:MVVMvideo03part03.Infrastructure.Commands"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:oxy="http://oxyplot.org/wpf"
-        xmlns:decanat="clr-namespace:MVVMvideo02part02.Models.Decanat"
+        xmlns:decanat="clr-namespace:MVVMvideo03part03.Models.Decanat"
         
         mc:Ignorable="d"
         Title="{Binding Path=Title}" Height="800" Width="1000" WindowStartupLocation="CenterScreen">
@@ -90,7 +90,7 @@
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
-                        <ColumnDefinition />
+                        <ColumnDefinition Width="200" />
                         <ColumnDefinition />
                         <ColumnDefinition />
                         <ColumnDefinition />
@@ -101,30 +101,56 @@
                         <ListBox ItemsSource="{Binding Groups}" />
                     </GroupBox>
                     <GroupBox Header="Группа " Grid.Column="1">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition Height="40"/>
-                                <RowDefinition Height="40"/>
-                                <RowDefinition Height="40"/>
-                            </Grid.RowDefinitions>
-                            <ListBox  Grid.Row="0" ItemsSource="{Binding Groups}" DisplayMemberPath="Name" SelectedIndex="0"
+                        <DockPanel >
+                            <DockPanel.Resources>
+                                <CollectionViewSource x:Key="Group" Source="{Binding Groups}"/>
+                            </DockPanel.Resources>
+                            <DockPanel DockPanel.Dock="Top"/>
+
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:ImageAwesome Height="12" Icon="Solid_Search" Margin="3 0"/>
+                                    <TextBox Width="170" />
+                                </StackPanel>
+                                
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                        <RowDefinition Height="40"/>
+                                    </Grid.RowDefinitions>
+                                    <ListBox  Grid.Row="0" ItemsSource="{Binding Groups}" DisplayMemberPath="Name" SelectedIndex="0"
                                  SelectedItem="{Binding SelectedGroup}"/>
 
-                            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5">
-                                <Button  Content="Добавить"  Width="75" Command="{Binding CreateGroupCommand}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                <Button  Content="Удалить" Width="75"  Command="{Binding DeleteGroupCommand}" CommandParameter="{Binding SelectedGroup}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5">
+                                        <Button  Content="Добавить"  Width="75" Command="{Binding CreateGroupCommand}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <Button  Content="Удалить" Width="75"  Command="{Binding DeleteGroupCommand}" CommandParameter="{Binding SelectedGroup}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
+                                    </StackPanel>
+
+
+                                </Grid>
                             </StackPanel>
+                           
 
-
-                        </Grid>
+                        </DockPanel>
+                        
+                        
                     </GroupBox>
                     <GroupBox Grid.Column="2" Header="{Binding SelectedGroup.Name, StringFormat='Студенты группы {0}',
                         FallbackValue='Студенты группы ', TargetNullValue='Группа не выбрана'}">
-                        <DataGrid ItemsSource="{Binding SelectedGroup.Students}">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <fa:ImageAwesome Height="12" Icon="Solid_Search" Margin="3 0"/>
+                                <TextBox Width="170" />
+                            </StackPanel>
 
-                        </DataGrid>
+
+                            <DataGrid ItemsSource="{Binding SelectedGroup.Students}">
+
+                            </DataGrid>
+                        </StackPanel>
                     </GroupBox>
                     <GroupBox Grid.Column="3" Header="{Binding SelectedGroup.Name, StringFormat='Студенты группы {0}',
                         FallbackValue='Студенты группы ', TargetNullValue='Группа не выбрана'}">

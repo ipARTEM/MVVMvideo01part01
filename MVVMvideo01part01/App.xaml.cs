@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace MVVMvideo02part02
+namespace MVVMvideo03part03
 {
     /// <summary>
     /// Interaction logic for App.xaml

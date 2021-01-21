@@ -1,9 +1,9 @@
-﻿using MVVMvideo02part02.Infrastructure.Commands.Base;
+﻿using MVVMvideo03part03.Infrastructure.Commands.Base;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MVVMvideo02part02.Infrastructure.Commands
+namespace MVVMvideo03part03.Infrastructure.Commands
 {
     internal class LambdaCommand : Command
     {
