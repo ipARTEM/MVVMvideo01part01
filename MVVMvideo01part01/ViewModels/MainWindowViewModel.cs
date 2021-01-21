@@ -107,6 +107,18 @@ namespace MVVMvideo03part03.ViewModels
             set { _Status = value; }
         }
         #endregion
+
+        #region Тест мах оперативки
+        public IEnumerable<Student> TestStudent => 
+            Enumerable.Range(1, App.IsDesingMode?15:10_000_000)        // Выбор показывать кол-во студентов в зависимости от (дизайнер или сборка программы)
+            .Select(i => new Student
+            {
+                Name = $"Имя{i}",
+                Surname = $"Фамилия{i}"
+            });
+        #endregion
+
+
         #endregion
 
         //**************************************************************************************//

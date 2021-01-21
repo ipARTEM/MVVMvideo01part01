@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MVVMvideo03part03"
+        xmlns:l="clr-namespace:MVVMvideo03part03"
         xmlns:vm="clr-namespace:MVVMvideo03part03.ViewModels"
         xmlns:cmd="clr-namespace:MVVMvideo03part03.Infrastructure.Commands"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
@@ -162,8 +162,15 @@
                                 <TextBox Width="170" />
                             </StackPanel>
 
-
+                            <!-- Виртуализация DataGrid-->
                             <DataGrid ItemsSource="{Binding SelectedGroup.Students}">
+                                <DataGrid.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel>
+                                            
+                                        </VirtualizingStackPanel>
+                                    </ItemsPanelTemplate>
+                                </DataGrid.ItemsPanel>
 
                             </DataGrid>
                         </StackPanel>
@@ -310,6 +317,48 @@
             <TabItem Header="{Binding TestDataPoints.Count}"/>
             <TabItem Header="{Binding TestDataPoints[0]}"/>
             <TabItem Header="{Binding TestDataPoints[0].XValue}"/>
+            <TabItem Header="Тестирование визуализации">
+                <Grid>
+                    <TextBlock Text="{Binding Source={x:Static l:App.IsDesingMode}}"/>
+                  
+               <!--С учетом виртуализованных настроек-->
+                    
+                    <ListBox HorizontalAlignment="Right" Width="200" Margin="30"
+                             ItemsSource="{Binding TestStudent}"
+                             VirtualizingPanel.IsVirtualizing="True"
+                             VirtualizingPanel.VirtualizationMode="Recycling"
+                             VirtualizingPanel.IsContainerVirtualizable="True"
+                             >
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                        <ListBox.ItemTemplate>
+
+                            <DataTemplate DataType="decanat:Student">
+                                <Border BorderBrush="Green" BorderThickness="1" CornerRadius="3" Padding="3">
+                                    <Border.CacheMode>
+                                        <BitmapCache/>
+                                    </Border.CacheMode>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Surname}" ToolTip="{Binding Name}"/>
+                                        <TextBlock Text="{Binding Name}" ToolTip="{Binding Name}"/>
+                                        <TextBlock Text="{Binding  Patronymic, TargetNullValue=---}" ToolTip="{Binding Name}"/>
+                                    </StackPanel>
+                                </Border>
+
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+
 
         </TabControl>
     </DockPanel>
