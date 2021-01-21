@@ -127,7 +127,14 @@
                                         <RowDefinition Height="40"/>
                                     </Grid.RowDefinitions>
                                     <ListBox  Grid.Row="0" ItemsSource="{Binding  Source={StaticResource GroupsCollection}}" DisplayMemberPath="Name" SelectedIndex="0"
-                                 SelectedItem="{Binding SelectedGroup}" Grid.ColumnSpan="2" Margin="0,0,0,17"/>
+                                 SelectedItem="{Binding SelectedGroup}" Grid.ColumnSpan="2" Margin="0,0,0,17">
+                                        <ListBox.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <VirtualizingStackPanel/>
+                                            </ItemsPanelTemplate>
+                                            
+                                        </ListBox.ItemsPanel>
+                                    </ListBox>
 
                                     <StackPanel Orientation="Horizontal" Margin="5,408,5,22" Grid.ColumnSpan="2" Grid.RowSpan="2">
                                         <Button  Content="Добавить"  Width="75" Command="{Binding CreateGroupCommand}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
