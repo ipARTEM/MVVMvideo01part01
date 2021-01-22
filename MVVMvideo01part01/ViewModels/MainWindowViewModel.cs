@@ -2,12 +2,15 @@
 using MVVMvideo03part03.Models;
 using MVVMvideo03part03.Models.Decanat;
 using MVVMvideo03part03.ViewModels.Base;
+using OxyPlot;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace MVVMvideo03part03.ViewModels
@@ -36,9 +39,66 @@ namespace MVVMvideo03part03.ViewModels
         public Group SelectedGroup
         {
             get { return _SelectedGroup; }
-            set => Set(ref _SelectedGroup, value);
+            set
+            {
+                if(!Set(ref _SelectedGroup, value)) return;
+                _SelectedGroupStudents.Source = value?.Students;
+                OnPropertyChanged(nameof(SelectedGroupStudents));   // уведомим о том что изменилось свойство
+            }
         }
         #endregion
+
+        #region StudentFilterText Текст фильтра студентов
+        private string _StudentFilterText;
+
+        public string StudentFilterText
+        {
+            get=> _StudentFilterText; 
+            set
+            {
+               if(! Set(ref _StudentFilterText, value)) return;
+                _SelectedGroupStudents.View.Refresh();
+            }
+        }
+        #endregion
+
+
+
+        #region OnStudentFiltred        Логика фильтрации для DataGrid
+
+        private readonly CollectionViewSource _SelectedGroupStudents=new CollectionViewSource();
+
+        private void OnStudentFiltred(object sender, FilterEventArgs e)
+        {
+           if(!(e.Item is Student student))
+            {
+                e.Accepted = false;
+                return;
+            }
+
+            var filter_text = _StudentFilterText;
+            if (string.IsNullOrWhiteSpace(filter_text)) return;
+
+           if(student.Name is null|| student.Surname is null|| student.Patronymic is null)
+            {
+                e.Accepted = false;
+                return;
+            }
+
+            if (student.Name.Contains(filter_text, StringComparison.OrdinalIgnoreCase)) return;
+
+            if (student.Surname.Contains(filter_text, StringComparison.OrdinalIgnoreCase)) return;
+
+            if (student.Patronymic.Contains(filter_text, StringComparison.OrdinalIgnoreCase)) return;
+
+            e.Accepted = false;
+
+        }
+
+        public ICollectionView SelectedGroupStudents => _SelectedGroupStudents?.View;
+
+        #endregion
+
 
 
         #region SelectedPageIndex : int - Номер выбранной вкладки
@@ -82,9 +142,9 @@ namespace MVVMvideo03part03.ViewModels
         /// <summary>
         /// Тестовый набор данных для визуализации графиков
         /// </summary>
-        private IEnumerable<DataPoint> _TestDataPoints;
+        private IEnumerable<Models.DataPoint> _TestDataPoints;
 
-        public IEnumerable<DataPoint> TestDataPoints
+        public IEnumerable<Models.DataPoint> TestDataPoints
         {
             get { return _TestDataPoints; }
             set => Set(ref _TestDataPoints, value);
@@ -110,7 +170,7 @@ namespace MVVMvideo03part03.ViewModels
 
         #region Тест мах оперативки
         public IEnumerable<Student> TestStudent => 
-            Enumerable.Range(1, App.IsDesingMode?15:10_000_000)        // Выбор показывать кол-во студентов в зависимости от (дизайнер или сборка программы)
+            Enumerable.Range(1, App.IsDesingMode?15:100)        // Выбор показывать кол-во студентов в зависимости от (дизайнер или сборка программы)
             .Select(i => new Student
             {
                 Name = $"Имя{i}",
@@ -212,13 +272,13 @@ namespace MVVMvideo03part03.ViewModels
             DeleteGroupCommand = new LambdaCommand(OnDeleteGroupCommandExecuted, CanDeleteGroupCommandExecute);
 
             #endregion
-            var data_points = new List<DataPoint>((int)(360 / 0.1));
+            var data_points = new List<Models.DataPoint>((int)(360 / 0.1));
             for (var x = 0d; x <= 360; x += 0.1)
             {
                 const double to_rad = Math.PI / 180;
                 var y = Math.Sin(x * to_rad);
 
-                data_points.Add(new DataPoint { XValue = x, YValue = y });
+                data_points.Add(new Models.DataPoint { XValue = x, YValue = y });
             }
 
             TestDataPoints = data_points;
@@ -241,9 +301,18 @@ namespace MVVMvideo03part03.ViewModels
             });
 
             Groups = new ObservableCollection<Group>(groups);
+
+            //Добавление фильтра
+            _SelectedGroupStudents.Filter += OnStudentFiltred;
+
+            //Упорядочивание новой коллекции в обратном порядке
+            _SelectedGroupStudents.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Descending));
+
+            //Группировка данных
+            _SelectedGroupStudents.GroupDescriptions.Add(new PropertyGroupDescription("Name"));
+
         }
 
-
-
+   
     }
 }
