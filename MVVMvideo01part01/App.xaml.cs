@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVMvideo03part03.Services;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -20,6 +21,10 @@ namespace MVVMvideo03part03
             IsDesingMode = false;
 
             base.OnStartup(e);
+
+            var service_test = new DataService();
+
+            var countries = service_test.GetData().ToArray();
         }
 
 
