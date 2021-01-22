@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MVVMvideo03part03.Models.Decanat
+namespace MVVMvideo04part04.Models.Decanat
 {
     internal class Student
     {

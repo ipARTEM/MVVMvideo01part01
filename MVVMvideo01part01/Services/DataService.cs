@@ -1,4 +1,4 @@
-﻿using MVVMvideo03part03.Models;
+﻿using MVVMvideo04part04.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace MVVMvideo03part03.Services
+namespace MVVMvideo04part04.Services
 {
     internal class DataService
     {

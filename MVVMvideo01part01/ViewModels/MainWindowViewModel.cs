@@ -1,7 +1,7 @@
-﻿using MVVMvideo03part03.Infrastructure.Commands;
-using MVVMvideo03part03.Models;
-using MVVMvideo03part03.Models.Decanat;
-using MVVMvideo03part03.ViewModels.Base;
+﻿using MVVMvideo04part04.Infrastructure.Commands;
+using MVVMvideo04part04.Models;
+using MVVMvideo04part04.Models.Decanat;
+using MVVMvideo04part04.ViewModels.Base;
 using OxyPlot;
 using System;
 using System.Collections.Generic;
@@ -13,15 +13,10 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 
-namespace MVVMvideo03part03.ViewModels
+namespace MVVMvideo04part04.ViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
-        
-
-
-
-
 
         public ObservableCollection<Group> Groups { get; }
 

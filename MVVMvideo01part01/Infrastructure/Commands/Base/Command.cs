@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 
-namespace MVVMvideo03part03.Infrastructure.Commands.Base
+namespace MVVMvideo04part04.Infrastructure.Commands.Base
 {
     internal abstract class Command : ICommand
     {

@@ -1,9 +1,9 @@
-﻿using MVVMvideo03part03.Models.Decanat;
+﻿using MVVMvideo04part04.Models.Decanat;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
-namespace MVVMvideo03part03
+namespace MVVMvideo04part04
 {
  
     public partial class MainWindow : Window

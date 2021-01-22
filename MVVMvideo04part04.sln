@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVVMvideo03part03", "MVVMvideo01part01\MVVMvideo03part03.csproj", "{666C03BE-713B-4C26-AD08-07F6385DA271}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVVMvideo04part04", "MVVMvideo01part01\MVVMvideo04part04.csproj", "{666C03BE-713B-4C26-AD08-07F6385DA271}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

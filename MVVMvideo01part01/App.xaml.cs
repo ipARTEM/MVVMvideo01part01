@@ -1,4 +1,4 @@
-﻿using MVVMvideo03part03.Services;
+﻿using MVVMvideo04part04.Services;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace MVVMvideo03part03
+namespace MVVMvideo04part04
 {
     /// <summary>
     /// Interaction logic for App.xaml

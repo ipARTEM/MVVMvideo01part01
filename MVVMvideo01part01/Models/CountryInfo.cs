@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MVVMvideo03part03.Models
+namespace MVVMvideo04part04.Models
 {
     internal class CountryInfo : PlaceInfo
     {
