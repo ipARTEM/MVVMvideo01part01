@@ -22,9 +22,10 @@ namespace MVVMvideo04part04
 
             base.OnStartup(e);
 
-            var service_test = new DataService();
+            //После того как сервис готов убираем его отсюда
+            //var service_test = new DataService();
 
-            var countries = service_test.GetData().ToArray();
+            //var countries = service_test.GetData().ToArray();
         }
 
 

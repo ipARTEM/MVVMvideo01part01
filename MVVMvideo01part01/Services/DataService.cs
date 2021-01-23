@@ -79,12 +79,12 @@ namespace MVVMvideo04part04.Services
                 var country = new CountryInfo
                 {
                     Name = country_info.Key,
-                    ProvinceCounts = country_info.Select(c => new PlaceInfo
-                    {
-                        Name = c.Province,
-                        Location = new Point(c.Place.Lat, c.Place.Lon),
-                        Counts = dates.Zip(c.Counts, (date, count) => new ConfirmedCount { Date = date, Count = count })
-                    })
+                    //ProvinceCounts = country_info.Select(c => new PlaceInfo
+                    //{
+                    //    Name = c.Province,
+                    //    Location = new Point(c.Place.Lat, c.Place.Lon),
+                    //    //Counts = dates.Zip(c.Counts, (date, count) => new ConfirmedCount { Date = date, Count = count })
+                    //})
                 };
                 yield return country;
             }

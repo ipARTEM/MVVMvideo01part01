@@ -314,9 +314,7 @@
 
                 </oxy:Plot>
             </TabItem>
-
             <TabItem Header="{Binding TestDataPoints}"/>
-
             <TabItem Header="{Binding TestDataPoints}"/>
             <TabItem Header="{Binding TestDataPoints.Count}"/>
             <TabItem Header="{Binding TestDataPoints[0]}"/>
@@ -361,6 +359,9 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </Grid>
+            </TabItem>
+            <TabItem Header="Статистика">
+                
             </TabItem>
 
 
