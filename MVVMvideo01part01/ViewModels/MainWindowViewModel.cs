@@ -17,7 +17,12 @@ namespace MVVMvideo04part04.ViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
+        //************************************************************************
 
+        private readonly CountriesStatisticViewModel _CountriesStatistic;
+
+
+        //************************************************************************
         public ObservableCollection<Group> Groups { get; }
 
 
@@ -257,6 +262,9 @@ namespace MVVMvideo04part04.ViewModels
 
         public MainWindowViewModel()
         {
+            _CountriesStatistic = new  CountriesStatisticViewModel(this);
+
+
             #region Команды
             CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
 

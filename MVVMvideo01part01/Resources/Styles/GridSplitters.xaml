@@ -4,6 +4,7 @@
 
     <Style x:Key="DefaultGridSplitterStyle" TargetType="{x:Type GridSplitter}">
         <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Panel.ZIndex" Value="1000000"/>
         <Style.Triggers>
             <Trigger Property="HorizontalAlignment" Value="Stretch">
                 <Setter Property="Height" Value="3"/>

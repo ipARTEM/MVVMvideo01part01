@@ -9,6 +9,8 @@
         xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:decanat="clr-namespace:MVVMvideo04part04.Models.Decanat"
+        xmlns:view="clr-namespace:MVVMvideo04part04.Views"
+        
         
         mc:Ignorable="d"
         Title="{Binding Path=Title}" Height="800" Width="1000" WindowStartupLocation="CenterScreen">
@@ -361,7 +363,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Статистика">
-                
+                <view:CountriesStatisticView/>
             </TabItem>
 
 
