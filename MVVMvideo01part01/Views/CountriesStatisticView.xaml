@@ -12,7 +12,21 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <GridSplitter Width="3" Background="Transparent"/>
-        <GroupBox Header="Список стран"></GroupBox>
+        <GroupBox Grid.Column="0" Header="Список стран">
+            <ListBox/>
+        </GroupBox>
+
+        <GroupBox Grid.Column="1" Header="Информация">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <GridSplitter VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Width="3" Background="Transparent"/>
+
+            </Grid>
+            
+        </GroupBox>
 
 
     </Grid>

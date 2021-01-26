@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:MVVMvideo04part04"
              StartupUri="Views/Windows/MainWindow.xaml">
     <Application.Resources>
+        
+        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/GridSplitters.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
          
     </Application.Resources>
 </Application>
