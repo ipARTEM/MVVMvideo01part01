@@ -7,7 +7,7 @@ using System.Windows.Markup;
 
 namespace MVVMvideo04part04.Infrastructure.Converters
 {
-    internal class Ratio : IValueConverter
+    internal class Ratio : Converter
     {
 
         [ConstructorArgument("K")]
@@ -17,14 +17,14 @@ namespace MVVMvideo04part04.Infrastructure.Converters
 
         public Ratio(double K) => this.K = K;
 
-        public object Convert(object value, Type t, object p, CultureInfo c)
+        public override object Convert(object value, Type t, object p, CultureInfo c)
         {
             if (value is null) return null;
             var x = System.Convert.ToDouble(value);
             return x * K;
         }
 
-        public object ConvertBack(object value, Type t, object p, CultureInfo c)
+        public override object ConvertBack(object value, Type t, object p, CultureInfo c)
         {
             if (value is null) return null;
             var x = System.Convert.ToDouble(value);

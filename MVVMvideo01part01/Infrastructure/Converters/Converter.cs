@@ -8,10 +8,7 @@ namespace MVVMvideo04part04.Infrastructure.Converters
 {
     internal abstract class Converter : IValueConverter
     {
-        public abstract object Convert(object v, Type t, object p, CultureInfo c)
-        {
-           
-        }
+        public abstract object Convert(object v, Type t, object p, CultureInfo c);
 
         public virtual object ConvertBack(object v, Type t, object p, CultureInfo c)
         {

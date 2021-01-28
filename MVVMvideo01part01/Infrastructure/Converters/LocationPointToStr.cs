@@ -7,9 +7,9 @@ using System.Windows.Data;
 
 namespace MVVMvideo04part04.Infrastructure.Converters
 {
-    internal class LocationPointToStr : IValueConverter
+    internal class LocationPointToStr : Converter
     {
-        public object Convert(object value, Type t, object p, CultureInfo c)
+        public override object Convert(object value, Type t, object p, CultureInfo c)
         {
             //var point = (Point)value;
             if (!(value is Point point)) return null;
@@ -18,7 +18,7 @@ namespace MVVMvideo04part04.Infrastructure.Converters
             return $"Lat:{point.X}; Lon:{point.Y}";
         }
 
-        public object ConvertBack(object value, Type y, object p, CultureInfo c)
+        public override object ConvertBack(object value, Type y, object p, CultureInfo c)
         {
             //var str = (string)value;
 
