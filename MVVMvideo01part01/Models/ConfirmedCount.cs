@@ -6,8 +6,13 @@ using System.Windows;
 
 namespace MVVMvideo04part04.Models
 {
-    internal struct ConfimedCount
+    internal struct ConfirmedCount
     {
+        public DateTime Date { get; set; }
+
+        public int Count { get; set; }
+
+
         private Point? _Location;
 
         //public override Point Location

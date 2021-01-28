@@ -19,7 +19,7 @@ namespace MVVMvideo04part04.ViewModels
     {
         //************************************************************************
 
-        private readonly CountriesStatisticViewModel _CountriesStatistic;
+        public  CountriesStatisticViewModel CountriesStatistic { get; }
 
 
         //************************************************************************
@@ -262,7 +262,7 @@ namespace MVVMvideo04part04.ViewModels
 
         public MainWindowViewModel()
         {
-            _CountriesStatistic = new  CountriesStatisticViewModel(this);
+            CountriesStatistic = new  CountriesStatisticViewModel(this);
 
 
             #region Команды
