@@ -3,7 +3,9 @@
                     >
 
     <Style x:Key="DefaultGridSplitterStyle" TargetType="{x:Type GridSplitter}">
-        <Setter Property="Background" Value="Transparent"/>
+
+        <!--<Setter Property="Background" Value="{ StaticResource TransparentBrush}"/>-->
+        <Setter Property="Background" Value="{ DynamicResource TransparentBrush}"/>
         <Setter Property="Panel.ZIndex" Value="1000000"/>
         <Style.Triggers>
             <Trigger Property="HorizontalAlignment" Value="Stretch">
