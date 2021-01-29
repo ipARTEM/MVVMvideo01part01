@@ -75,7 +75,7 @@
                 <TextBox Grid.Row="0" Margin="0 30 0 0" 
                          VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"
                          
-                          Text="{Binding Value, ElementName=ValueSlider, Converter={StaticResource  Linear_K5_Be}, UpdateSourceTrigger=PropertyChanged}"/>
+                          Text="{Binding Value, ElementName=ValueSlider, Converter={StaticResource  TestConverter}, UpdateSourceTrigger=PropertyChanged}"/>
 
             </Grid>
             
