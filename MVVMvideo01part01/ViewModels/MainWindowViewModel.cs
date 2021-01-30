@@ -12,9 +12,11 @@ using System.Text;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Markup;
 
 namespace MVVMvideo04part04.ViewModels
 {
+    [MarkupExtensionReturnType(typeof(MainWindowViewModel))]
     internal class MainWindowViewModel : ViewModel
     {
         //************************************************************************
@@ -192,7 +194,7 @@ namespace MVVMvideo04part04.ViewModels
 
         private void OnCloseApplicationCommandExecuted(object p)
         {
-            //(RootObject as Window)?.Close();
+            //(RootObject as Window)?.Close();  //тоже закрывает приложение
             Application.Current.Shutdown();
 
             //var items = new string[10];       // Работает только на Core

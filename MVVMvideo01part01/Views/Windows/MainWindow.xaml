@@ -10,13 +10,13 @@
         xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:decanat="clr-namespace:MVVMvideo04part04.Models.Decanat"
         xmlns:view="clr-namespace:MVVMvideo04part04.Views"
-        
+        DataContext="{vm:MainWindowViewModel}"
         
         mc:Ignorable="d"
         Title="{Binding Path=Title}" Height="800" Width="1000" WindowStartupLocation="CenterScreen">
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <vm:MainWindowViewModel/>
-    </Window.DataContext>
+    </Window.DataContext>-->
 
     <Window.InputBindings>
         <KeyBinding Modifiers="Ctrl" Key="Q" Command="{Binding CloseApplicationCommand}"/>
