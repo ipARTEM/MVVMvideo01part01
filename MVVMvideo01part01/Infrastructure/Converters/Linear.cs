@@ -12,6 +12,7 @@ namespace MVVMvideo04part04.Infrastructure.Converters
     /// Реализация преобразования f(x)=k*x+b
     /// </summary>
     [ValueConversion(typeof(double), typeof(string))]
+    [MarkupExtensionReturnType(typeof(Linear))]
     internal class Linear : Converter
     {
         [ConstructorArgument("K")]

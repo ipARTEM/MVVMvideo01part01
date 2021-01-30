@@ -7,6 +7,7 @@ using System.Windows.Markup;
 
 namespace MVVMvideo04part04.Infrastructure.Converters
 {
+    [MarkupExtensionReturnType(typeof(Ratio))]
     internal class Ratio : Converter
     {
 
@@ -29,6 +30,32 @@ namespace MVVMvideo04part04.Infrastructure.Converters
             if (value is null) return null;
             var x = System.Convert.ToDouble(value);
             return x / K;
+        }
+    }
+
+    [MarkupExtensionReturnType(typeof(Add))]
+    internal class Add : Converter
+    {
+
+        [ConstructorArgument("K")]
+        public double B { get; set; } = 1;
+
+        public Add() { }
+
+        public Add(double K) => this.B = K;
+
+        public override object Convert(object value, Type t, object p, CultureInfo c)
+        {
+            if (value is null) return null;
+            var x = System.Convert.ToDouble(value);
+            return x + B;
+        }
+
+        public override object ConvertBack(object value, Type t, object p, CultureInfo c)
+        {
+            if (value is null) return null;
+            var x = System.Convert.ToDouble(value);
+            return x - B;
         }
     }
 }
